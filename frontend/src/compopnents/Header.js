@@ -27,7 +27,6 @@ const Header = () => {
                                     Connexion
                                 </Nav.Link>
                             </LinkContainer>
-
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
