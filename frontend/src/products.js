@@ -77,6 +77,19 @@ const products = [
     rating: 4,
     numReviews: 12,
   },
+  {
+    _id: '7',
+    name: 'Messor Barbarus',
+    image: '/images/messor.png',
+    description:
+      'Messor barbarus est une espèce principalement granivore, très intéressante à observer avec la fabrication du pain de fourmis pour nourrir le couvain, 3 castes différentes minor, média et major avec chacun des rôles différents, mais aussi très bonnes chasseuses une fois que la colonie devient populeuse, une espèce idéale pour les débutants car très costaud qui pardonne les erreurs d\'élevage.\n',
+    brand: 'ChrisAnts',
+    category: 'Myrmicinae Tribus: Pheidolini',
+    price: 8.50,
+    countInStock: 0,
+    rating: 5,
+    numReviews: 8,
+  },
 ]
 
 export default products
