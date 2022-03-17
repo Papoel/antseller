@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "MERN e-commerce de Fourmis",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node backend/server.js",
     "serve": "nodemon backend/server.js",
