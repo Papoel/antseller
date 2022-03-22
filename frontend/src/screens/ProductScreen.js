@@ -10,7 +10,7 @@ const ProductScreen = ({ match }) => {
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const { data } = await axios.get(`/api/products/${match.params.id}`)
+            const { data } = await axios.get(`http://127.0.0.1:8080/api/products/${match.params.id}`)
 
             setProduct(data)
         }
