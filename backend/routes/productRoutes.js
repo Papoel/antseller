@@ -30,7 +30,8 @@ router.get('/:id',asyncHandler( async (request, response) => {
     if (product) {
         response.json(product)
     } else {
-        response.status(404).json({ message: "Cet article n'existe pas !" })
+        response.status(404)
+        throw new Error("Cet article n'existe pas !" )
     }
 }))
 
