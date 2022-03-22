@@ -4,6 +4,7 @@
   "description": "MERN e-commerce de Fourmis",
   "main": "server.js",
   "type": "module",
+  "proxy": 8080,
   "scripts": {
     "start": "node backend/server.js",
     "serve": "nodemon backend/server.js",
@@ -25,8 +26,11 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
+    "express-async-handler": "^1.2.0",
     "mongoose": "^6.2.7"
   },
   "devDependencies": {
