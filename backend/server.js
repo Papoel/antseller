@@ -2,27 +2,35 @@ import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
 import connectDB from './config/db.js'
-import products from './data/products.js'
 
-const app = express()
+import productRoutes from './routes/productRoutes.js'
 
 dotenv.config()
 
-connectDB()
+// connectDB()
+
+const app = express()
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods',
+        'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();
+});
+
+app.use(express.json)
+
+app.get('/', (req, res) => {
+    res.write('Avec la fonction write : API est en cours d\'éxécution')
+    res.end()
+    })
+
+app.use('/api/products', productRoutes)
 
 const PORT = process.env.PORT || 5000
 const ENV = process.env.NODE_ENV
-
-app.get('/api/products/', (req, res) => {
-    res.set('Content-Type', 'application/json')
-    res.json(products)
-})
-
-app.get('/api/products/:id', (req, res) => {
-    res.set('Content-Type', 'application/json')
-    const product = products.find(p => p._id === req.params.id)
-    res.json(product)
-})
 
 app.listen(
     PORT,
