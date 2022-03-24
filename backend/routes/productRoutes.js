@@ -12,13 +12,10 @@ const router = express.Router()
  * @access:         Public
 */
 router.get('/', asyncHandler(async(request, response) => {
-    try {
         const products = await Product.find({})
         response.json(products)
-    } catch (error) {
-        console.log("Une erreur s'est produite".white.bgRed)
-    }
-}))
+    })
+)
 
 /*
  * @description:    Récupère un produit
