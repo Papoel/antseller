@@ -21,6 +21,7 @@ node_modules/
 .idea/proshop.iml
 .idea/vcs.xml
 .idea/workspace.xml
+.vscode
 
 .env
 .env.local
