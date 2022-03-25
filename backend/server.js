@@ -1,19 +1,22 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 import colors from 'colors'
 import connectDB from './config/db.js'
 // Importer la gestion des erreurs
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
+// Mes routes
 import productRoutes from './routes/productRoutes.js'
-import cors from 'cors'
+import userRoutes from './routes/userRoutes.js'
 
 dotenv.config()
 // Se connecter à la base de donnée.
 connectDB()
 
 const app = express()
-
+app.use(express.json())
+app.use(cors())
 // Paramétrer les Headers
 app.use((request, response, next) => {
     response.setHeader('Access-Control-Allow-Origin', '*')
@@ -28,14 +31,14 @@ app.use((request, response, next) => {
     next()
 })
 
-app.use(express.json())
-app.use(cors())
+
 
 app.get('/', (request, response) => {
     response.send("API est en cours d'éxécution")
 })
 
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
 
 // Gérer les erreurs
 app.use(notFound)
